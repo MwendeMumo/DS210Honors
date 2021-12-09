@@ -1,0 +1,43 @@
+---
+title: "Predicting Anemia "
+subtitle: "Mwende Mumo"
+date: `r Sys.Date()`
+output: html_document
+theme: journal
+---
+## Introduction
+The heart_failure dataset was originally used on kaggle as an open source project for predicting mortality caused by hear failure. In this study I will use the predictors from the heart_failure to predict the probability that an individual will contract anemia. This is possible because a lot of the factors that cause heart failure can also cause anemia.
+
+Anemia is a condition in which your body lacks enough healthy red blood cells to carry adequate oxygen to its tissues. Suffering from anemia is also referred to as having low hemoglobin. If anemia is left untreated it can cause extreme fatigue, pregnancy complications,heart problems, or death in the case of sickle cell anemia. It is therefore important to be able to accurately predict whether an individual has the disease.
+
+Link for the dataset: https://www.kaggle.com/andrewmvd/heart-failure-clinical-data
+
+## Codebook
+`age` - age of individual
+`anemia` - if the patienet has decreased red blood cells or hemoglobin
+`creatinine_phosphokinase` - level of CPK enzyme in the blood (mcg/L)
+`diabetes` - if the patient has diabetes
+`ejection_fraction` - percentage of blood leaving the heart at each contraction
+`high_blood_pressure` - if the patient has hypertension
+`platelets` - platelets in the blood (kiloplatelets/mL)
+`serum_creatinine` - Level of serum creatinine in the blood (mg/dL)
+`serum_sodium` - level of serum sodium in the blood (mEq/L)
+`sex` - woman or man
+`DEATH_EVENT` - if the patient deceased during the follow-up period (boolean)
+`smoking` - if the patient smokes or not
+`time` - follow-up period(days) 
+
+## Loading in the data
+Load the relevant packages.
+```{r load_packages, message=FALSE}
+library(tidyverse)
+library(caret)
+library(janitor)
+```
+
+Import the data
+```{r import_data}
+heart_failure <- read_csv("data/heart_failure_clinical_records_dataset")
+glimpse(heart_failure)
+```
+
